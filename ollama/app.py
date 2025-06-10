@@ -4,16 +4,14 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+# Use Streamlit secrets
+LANGCHAIN_API_KEY = st.secrets["LANGCHAIN_API_KEY"]
+LANGCHAIN_PROJECT = st.secrets["LANGCHAIN_PROJECT"]
 
-# Use secrets in deployment; use os.getenv for local
-LANGCHAIN_API_KEY = st.secrets.get("LANGCHAIN_API_KEY", os.getenv("LANGCHAIN_API_KEY"))
-LANGCHAIN_PROJECT = st.secrets.get("LANGCHAIN_PROJECT", os.getenv("LANGCHAIN_PROJECT"))
-
-# Set environment variables (needed by LangSmith or LangChain logging)
+# Set environment variables (used by LangSmith / LangChain)
 os.environ["LANGCHAIN_API_KEY"] = LANGCHAIN_API_KEY
 os.environ["LANGCHAIN_PROJECT"] = LANGCHAIN_PROJECT
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
-
 
 # import ollama
 from langchain_ollama import OllamaLLM
@@ -85,7 +83,7 @@ from langchain.chains import create_retrieval_chain
 retrieval_chain=create_retrieval_chain(retriever,document_chain)
 
 
-st.title("Basic GenAI With Lemma Model")
+st.title("Basic GenAI With Gemma Model")
 input_text=st.text_input("What Question You Have In Mind")
 
 # Get Query From User
