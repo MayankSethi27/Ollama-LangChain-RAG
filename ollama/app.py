@@ -4,6 +4,9 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+#import streamlit
+import streamlit as st
+
 # Use Streamlit secrets
 LANGCHAIN_API_KEY = st.secrets["LANGCHAIN_API_KEY"]
 LANGCHAIN_PROJECT = st.secrets["LANGCHAIN_PROJECT"]
@@ -15,9 +18,6 @@ os.environ["LANGCHAIN_TRACING_V2"] = "true"
 
 # import ollama
 from langchain_ollama import OllamaLLM
-
-#import streamlit
-import streamlit as st
 
 
 ## Data Ingestion--From the website we need to scrape the data
