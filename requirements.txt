@@ -1,0 +1,9 @@
+langchain
+ipykernel
+python-dotenv  
+langchain-community
+streamlit
+beautifulsoup4
+langchain-ollama
+sentence-transformers
+faiss-cpu
